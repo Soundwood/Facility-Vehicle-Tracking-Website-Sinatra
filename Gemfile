@@ -11,6 +11,7 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
+gem 'rack_session_access'
 
 group :test do
   gem 'rspec'
