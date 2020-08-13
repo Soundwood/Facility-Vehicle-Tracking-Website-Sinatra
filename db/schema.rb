@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200804221649) do
+ActiveRecord::Schema.define(version: 20200813145100) do
 
   create_table "locations", force: :cascade do |t|
     t.string "station"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20200804221649) do
     t.datetime "departure_time"
     t.time     "current_location_duration"
     t.time     "total_duration"
+    t.integer  "location_id"
   end
 
 end
