@@ -1,10 +1,12 @@
-<h2>Vehicle:</h2>
+<h2>Vehicle <%= @vehicle.id %>:</h2>
 
-<h4> <%= @vehicle.vin %></h4>
-<h4> <%= @vehicle.model %></h4>
-<h4> <%= @vehicle.sub_model %></h4>
-<h4> <%= @vehicle.location %></h4>
-<h4> <%= @vehicle.current_location_duration %></h4>
-<h4> <%= @vehicle.total_duration %></h4>
-<h4> <%= @vehicle.arrival_time %></h4>
-<h4> <%= @vehicle.departure_time %></h4>
+<h4> Vin #: <%= @vehicle.vin %></h4>
+<h4> Model: <%= @vehicle.model %></h4>
+<h4> Sub-Model: <%= @vehicle.sub_model %></h4>
+<h4> Current Location: <%= @vehicle.location %></h4>
+<h4> Current Location Duration: <%= @vehicle.current_location_duration %></h4>
+<h4> Total Duration in Facility: <%= @vehicle.total_duration %></h4>
+<h4> Arrival Timestamp: <%= @vehicle.arrival_time %></h4>
+<h4> Departure Timestamp: <%= @vehicle.departure_time %></h4>
+
+<h4> <a href="/vehicles/<%= @vehicle.id %>/edit">Edit Vehicle</a></h4>

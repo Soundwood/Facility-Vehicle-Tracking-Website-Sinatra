@@ -1,6 +1,8 @@
-<h1>Location:</h1>
-<h2> <%= @location.station %> </h2>
-<h2> <%= @location.building %> </h2>
-<h2> <%= @location.total_vehicles %> </h2>
-<h2> <%= @location.avg_duration %> </h2>
+<h1>Location <%= @location.id %> Details</h1>
+<h4> Station: <%= @location.station %> </h4>
+<h4> Building: <%= @location.building %> </h4>
+<h4> Total Vehicles: <%= @location.total_vehicles %> </h4>
+<h4> Average Duration: <%= @location.avg_duration %> </h4>
+
+<h4> <a href="/locations/<%= @location.id %>/edit">Edit Location</a></h4>
 

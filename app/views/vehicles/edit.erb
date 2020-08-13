@@ -1,20 +1,17 @@
-<h1>Update Vehicle</h1>
-
-<h2>Edits for <%= @vehicle.vin %></h2>
+<h1>Update Vehicle <%= @vehicle.id %></h1>
 
   <form action="/vehicles/<%= @vehicle.id %>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="patch">
-    <label>Edit the Vehicles Vin:</label>
+    <label>Edit the Vehicle's Vin:</label>
     <input type="text" name="vehicle[vin]" value="<%= @vehicle.vin %>"><br>
-    <label>Edit the Vehicles Model:</label>
-    <input type="text" name="vehicle[model]" value="<%= @vehicle.model %>">
-    <label>Edit the Vehicles Sub-Model:</label>
+    <label>Edit the Vehicle's Model:</label>
+    <input type="text" name="vehicle[model]" value="<%= @vehicle.model %>"><br>
+    <label>Edit the Vehicle's Sub-Model:</label>
     <input type="text" name="vehicle[sub_model]" value="<%= @vehicle.sub_model %>">
     <br>
-    <h4>Vehicle Current Location Duration at <%= @vehicle.location.building %> <%= @vehicle.location.station %>: <%= @vehicle.current_location_duration %></h4>
     <h4>Vehicle Total Duration at Facility: <%= @vehicle.total_duration %></h4>
     <h4>Vehicle Arrival at Facility: <%= @vehicle.arrival_time %></h4>
     <h4>Vehicle Departure from Facility: <%= @vehicle.departure_time %></h4>
 
-    <input type="submit" value="Update Location">
+    <input type="submit" value="Update Vehicle">
   </form>

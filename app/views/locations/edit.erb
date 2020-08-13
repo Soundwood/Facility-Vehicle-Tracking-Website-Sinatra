@@ -1,16 +1,14 @@
-<h1>Update Location</h1>
-
-<h2>Edits for <%= @location.station %></h2>
+<h1>Update Location <%= @location.id %>:</h1>
 
   <form action="/locations/<%= @location.id %>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="patch">
-    <label>Edit the Locations Station:</label>
+    <label>Edit the Location's Station:</label>
     <input type="text" name="location[station]" value="<%= @location.station %>"><br>
-    <label>Edit the Locations Building:</label>
+    <label>Edit the Location's Building:</label>
     <input type="text" name="location[building]" value="<%= @location.building %>">
     <br>
-    <h4>Total Vehicles at <%= @location.station %> <%= @location.total_vehicles %></h4>
-    <h4>Average Duration at <%= @location.station %> <%= @location.avg_duration %></h4>
+    Total Vehicles at <%= @location.station %>: <%= @location.total_vehicles %><br>
+    Average Duration at <%= @location.station %>: <%= @location.avg_duration %><br>
 
     <input type="submit" value="Update Location">
   </form>

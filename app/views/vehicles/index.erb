@@ -1,7 +1,7 @@
 <h2>Vehicles:</h2>
 <ul>
     <% @vehicles.each do |vehicle|%>
-        <li><%= vehicle.vin %></li>
+        <li><a href="/vehicles/<%= vehicle.id %>"> <%= vehicle.vin %></a></li>
         <li><%= vehicle.model %></li>
         <li><%= vehicle.sub_model %></li>
         <li><%= vehicle.location %></li>

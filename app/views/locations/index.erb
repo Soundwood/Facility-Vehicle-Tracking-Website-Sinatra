@@ -1,7 +1,7 @@
 <h1>Locations:</h1>
 <ul>
   <% @locations.each do |location|%>
-    <li><%=location.station%> </li>
+    <li><a href="/locations/<%= location.id %>"> <%=location.station%></a> </li>
     <li><%=location.building%> </li>
     <li><%=location.total_vehicles%> </li>
     <li><%=location.avg_duration%> </li>
