@@ -20,13 +20,13 @@
     <div class="wrapper">
       <div class ='navbar'>
       <%if current_user %>
-      <a href='/logout'>Logout</a>
-      <a href='/projects'>Projects</a>
-      <a href='/projects/new'>New Project</a>
-      <a href="/volunteers/<%= current_user.id %>">Home</a>
+      <a href='/user/logout'>Logout</a>
+      <a href='/vehicles'>Vehicles</a>
+      <a href='/locations'>Locations</a>
+      <a href="/user/account">Home</a>
       <%end %>
     </div>
-  <div class="wrapper">
+    <div class="wrapper">
         <%= yield %>
 
       <footer class="branding">

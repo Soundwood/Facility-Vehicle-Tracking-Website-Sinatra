@@ -1,0 +1,14 @@
+<h2>Vehicles:</h2>
+<ul>
+    <% @vehicles.each do |vehicle|%>
+        <li><%= vehicle.vin %></li>
+        <li><%= vehicle.model %></li>
+        <li><%= vehicle.sub_model %></li>
+        <li><%= vehicle.location %></li>
+        <li><%= vehicle.current_location_duration %></li>
+        <li><%= vehicle.total_duration %></li>
+        <li><%= vehicle.arrival_time %></li>
+        <li><%= vehicle.departure_time %></li>
+        <br>
+    <%end%>
+</ul>

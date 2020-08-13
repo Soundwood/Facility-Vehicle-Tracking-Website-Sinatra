@@ -2,25 +2,15 @@
 
 <h2>Edits for <%= @location.station %></h2>
 
-  <form action="/locations/<%= @loaction.id %>" method="POST">
+  <form action="/locations/<%= @location.id %>" method="POST">
     <input id="hidden" type="hidden" name="_method" value="patch">
-    <label>Edit the Locations Station Name:</label>
-    <input type="text" name="location[station]" value="<%= @location.station %>">
-
+    <label>Edit the Locations Station:</label>
+    <input type="text" name="location[station]" value="<%= @location.station %>"><br>
+    <label>Edit the Locations Building:</label>
+    <input type="text" name="location[building]" value="<%= @location.building %>">
     <br>
-    <p>Select an existing pet or create a new one below.</p>
+    <h4>Total Vehicles at <%= @location.station %> <%= @location.total_vehicles %></h4>
+    <h4>Average Duration at <%= @location.station %> <%= @location.avg_duration %></h4>
 
-
-    <h3>Existing Pets</h3>
-    <% @pets.each do |pet| %>
-      <input type="checkbox" name="owner[pet_ids][]" id="<%= pet.id %>" value="<%= pet.id %>" <%='checked' if @owner.pets.include?(pet) %>><%= pet.name %></input><br>
-    <% end %>
-    <br>
-
-    <h3>New Pet</h3>
-    <label>Pet Name: </label>
-    <input type="text" name="pet[name]" id="pet_name"></input>
-    <br><br>
-
-    <input type="submit" value="Update Owner">
+    <input type="submit" value="Update Location">
   </form>
