@@ -11,12 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200804184326) do
+ActiveRecord::Schema.define(version: 20200804221649) do
+
+  create_table "locations", force: :cascade do |t|
+    t.string "station"
+    t.string "building"
+    t.string "total_vehicles"
+    t.time   "avg_duration"
+  end
+
+  create_table "modifications", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
     t.string "password_digest"
+  end
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string   "vin"
+    t.string   "model"
+    t.string   "sub_model"
+    t.datetime "arrival_time"
+    t.datetime "departure_time"
+    t.time     "current_location_duration"
+    t.time     "total_duration"
   end
 
 end

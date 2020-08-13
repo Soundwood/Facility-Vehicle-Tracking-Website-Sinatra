@@ -1,5 +1,26 @@
-<h1>Welcome</h1>
+<h1>Welcome <%= @user.username %> </h1>
 
-<p>We are currently working on your account.</p>
+<p>The below vehicles and locations are currently active in the facility</p>
+
+<h2>Vehicles:</h2>
+<ul>
+    <% @vehicle.each do |vehicle|%>
+        <li><%= vehicle.vin %></li>
+        <li><%= vehicle.model %></li>
+        <li><%= vehicle.sub_model %></li>
+        <li><%= vehicle.location %></li>
+        <br>
+    <%end%>
+</ul>
+<h2>Locations:</h2>
+<ul>
+    <% @location.each do |location|%>
+        <li><%= location.station %></li>
+        <li><%= location.building %></li>
+        <li><%= location.total_vehicles %></li>
+        <li><%= location.avg_duration %></li>
+        <br>
+    <%end%>
+</ul>
 
 <p><a href="/user/logout">Log Out</a></p>

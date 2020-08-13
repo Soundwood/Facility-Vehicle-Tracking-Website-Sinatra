@@ -1,5 +1,3 @@
-# Needs soft failure for accessing user/account without already logging on
-
 class UsersController < ApplicationController
     get "/user/signup" do
         erb :'/user/signup'
@@ -8,6 +6,8 @@ class UsersController < ApplicationController
         user = User.new(:username => params[:username], :password => params[:password])
         if params[:username] == "" || params[:password] == ""
             redirect '/user/failure'
+        elsif User.find_by(:username => params[:username])
+            redirect '/user/already_exists'
         else
             if user.save
                 redirect "/user/login"
@@ -17,7 +17,10 @@ class UsersController < ApplicationController
         end
     end
     get '/user/account' do
-        @user = User.find(session[:user_id])
+        redirect_if_logged_out
+        @user = User.find_by(session[:user_id])
+        @vehicle = Vehicle.all
+        @location = Location.all
         erb :'/user/account'
     end
     get "/user/login" do
@@ -35,18 +38,11 @@ class UsersController < ApplicationController
     get "/user/failure" do
         erb :'/user/failure'
     end
+    get "/user/already_exists" do
+        erb :'/user/already_exists'
+    end
     get "/user/logout" do
         session.clear
         redirect "/"
-    end
-
-    helpers do
-        def logged_in?
-            !!session[:user_id]
-        end
-
-        def current_user
-            User.find(session[:user_id])
-        end
     end
 end

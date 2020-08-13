@@ -1,0 +1,10 @@
+<h1>Locations:</h1>
+<ul>
+  <% @locations.each do |location|%>
+    <li><%=location.station%> </li>
+    <li><%=location.building%> </li>
+    <li><%=location.total_vehicles%> </li>
+    <li><%=location.avg_duration%> </li>
+    <br>
+  <%end%>
+</ul>
