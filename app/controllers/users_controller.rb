@@ -45,4 +45,8 @@ class UsersController < ApplicationController
         session.clear
         redirect "/"
     end
+    delete "/user/:id" do
+        User.destroy(params[:id])
+        redirect to "/"
+    end
 end
