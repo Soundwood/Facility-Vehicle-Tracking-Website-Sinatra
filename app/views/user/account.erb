@@ -6,4 +6,7 @@
 There are currently <%= @vehicles.count %> Vehicles active in the facility.<br>
 There are currently <%= @locations.count %> Locations active in the facility.<br>
 
-<p><a href="/user/logout">Log Out</a></p>
+<p><form method="post" action="/user/<%= @user.id %>">
+  <input type="hidden" name="_method" value="delete" />
+  <input type="submit" value="Delete User"/>
+</form></p>
