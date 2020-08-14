@@ -9,8 +9,8 @@ Modification.delete_all
     location_array = ['Main','Acces','Final']
     Location.create(station: "#{station_array[rand(station_array.length)]}", building: "#{location_array.sample}")
 end
-50.times do
-    Vehicle.create(vin: Faker::Vehicle.vin, model: Faker::Vehicle.model(make_of_model: 'Toyota'), sub_model: Faker::Vehicle.drive_type)
+400.times do
+    Vehicle.create(vin: Faker::Vehicle.vin, model: Faker::Vehicle.model(make_of_model: 'Toyota'), sub_model: Faker::Vehicle.drive_type, location_id: rand(124..144))
 end
 20.times do
     Modification.create(name: Faker::Vehicle.car_options)
