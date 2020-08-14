@@ -1,7 +1,11 @@
 <h1>Locations:</h1>
 <ul>
   <% @locations.each do |location|%>
-    <li><a href="/locations/<%= location.id %>"> <%=location.station%></a> </li>
+    <% if location.user_id == current_user.id %>
+      <li><a href="/locations/<%= location.id %>"> <%=location.station%></a> </li>
+    <% else %>
+      <li><%= location.station %></li>
+    <% end %>
     <li><%=location.building%> </li>
     <li><%=location.total_vehicles%> </li>
     <li><%=location.avg_duration%> </li>

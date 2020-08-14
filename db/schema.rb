@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200813145100) do
+ActiveRecord::Schema.define(version: 20200814122059) do
 
   create_table "locations", force: :cascade do |t|
-    t.string "station"
-    t.string "building"
-    t.string "total_vehicles"
-    t.time   "avg_duration"
+    t.string  "station"
+    t.string  "building"
+    t.string  "total_vehicles"
+    t.time    "avg_duration"
+    t.integer "user_id"
   end
 
   create_table "modifications", force: :cascade do |t|
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 20200813145100) do
     t.time     "current_location_duration"
     t.time     "total_duration"
     t.integer  "location_id"
+    t.integer  "user_id"
   end
 
 end

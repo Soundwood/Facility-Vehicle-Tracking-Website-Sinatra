@@ -1,7 +1,11 @@
 <h2>Vehicles:</h2>
 <ul>
     <% @vehicles.each do |vehicle|%>
-        <li><a href="/vehicles/<%= vehicle.id %>"> <%= vehicle.vin %></a></li>
+        <% if vehicle.user_id == current_user.id %>
+            <li><a href="/vehicles/<%= vehicle.id %>"> <%= vehicle.vin %> </a> </li>
+        <% else %>
+            <li><%= vehicle.vin %></li>
+        <% end %>
         <li><%= vehicle.model %></li>
         <li><%= vehicle.sub_model %></li>
         <li><%= vehicle.location.station %></li>
