@@ -20,6 +20,7 @@ class VehiclesController < ApplicationController
     get '/vehicles/:id/edit' do
         redirect_if_logged_out
         @vehicle = Vehicle.find(params[:id])
+        redirect_if_unauth_user(@vehicle.user_id)
         erb :'/vehicles/edit'
     end
     get '/vehicles/unauth_for_vehicle' do
@@ -28,7 +29,6 @@ class VehiclesController < ApplicationController
     get '/vehicles/:id' do 
         redirect_if_logged_out
         @vehicle = Vehicle.find(params[:id])
-        
         redirect_if_unauth_user(@vehicle.user_id)
         erb :'/vehicles/show'
     end
