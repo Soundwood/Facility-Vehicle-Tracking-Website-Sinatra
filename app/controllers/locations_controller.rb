@@ -10,7 +10,8 @@ class LocationsController < ApplicationController
     end
     
     post '/locations' do
-        @location = Location.new(params[:location])
+        @user = current_user
+        @location = Location.new(:station => params[:location][:station],:building => params[:location][:building], :user_id => @user.id)
         if @location.save
             redirect "/locations/#{@location.id}"
         else

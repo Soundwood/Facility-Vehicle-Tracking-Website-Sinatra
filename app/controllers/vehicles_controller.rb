@@ -2,6 +2,7 @@ class VehiclesController < ApplicationController
     get '/vehicles' do
         redirect_if_logged_out
         @vehicles = Vehicle.all
+        @locations = Location.all
         erb :'/vehicles/index'
     end
     get '/vehicles/new' do
@@ -10,11 +11,14 @@ class VehiclesController < ApplicationController
     end
     
     post '/vehicles' do
-        @location = Vehicle.create(params[:location])
-        if !params["vehicle"]["vin"].empty?
-            @location.vehicle << Vehicle.create(vin: params["vehicle"]["vin"])
+        @user = current_user
+        @vehicle = Vehicle.new(:vin => params[:vehicle][:vin],:model => params[:vehicle][:model],:sub_model => params[:vehicle][:sub_model],
+        :location_id => params[:vehicle][:location_id], :user_id => @user.id)
+        if @vehicle.save
+            redirect "/vehicles/#{@vehicle.id}"
+        else
+            redirect "/vehicles/failure"
         end
-        redirect "/owners/#{@owner.id}"
     end
     
     get '/vehicles/:id/edit' do

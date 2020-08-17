@@ -1,5 +1,4 @@
 # Add seed data here. Seed your database with `rake db:seed`
-@prng = Random.new(876)
 Vehicle.delete_all
 Location.delete_all
 Modification.delete_all

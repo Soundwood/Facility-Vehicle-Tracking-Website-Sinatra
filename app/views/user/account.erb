@@ -5,6 +5,9 @@
 <!-- Total Vehicles -->
 There are currently <%= @vehicles.count %> Vehicles active in the facility.<br>
 There are currently <%= @locations.count %> Locations active in the facility.<br>
+<br>
+<a href="/locations/new">Create New Location</a><br>
+<a href="/vehicles/new">Create New Vehicle</a>
 
 <p><form method="post" action="/user/<%= @user.id %>">
   <input type="hidden" name="_method" value="delete" />
