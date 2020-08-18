@@ -1,11 +1,11 @@
 <h3>Create a New Vehicle</h3>
 <form action="/vehicles" method="POST">
     <label>Vehicle Vin:</label>
-    <input type="text" name="vehicle[vin]"><br>
+    <input type="text" name="vehicle[vin]" value="<%= @vehicle.vin %>"><br>
     <label>Vehicle Model:</label>
-    <input type="text" name="vehicle[model]"><br>
+    <input type="text" name="vehicle[model]" value="<%= @vehicle.model %>"><br>
     <label>Vehicle Sub-Model:</label>
-    <input type="text" name="vehicle[sub_model]"><br>
+    <input type="text" name="vehicle[sub_model]" value="<%= @vehicle.sub_model %>"><br>
     <label>Vehicle Location:</label>
     <input type="text" name="vehicle[location_id]"><br>  
     <input type="submit" value="Create New Vehicle">
