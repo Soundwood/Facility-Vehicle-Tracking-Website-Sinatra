@@ -11,14 +11,19 @@ And then execute:
 
     $ bundle install
 
-Or install it yourself as:
-
-    $ gem install music_video_finder
-
-Migrate and Seed the Database
+Migrate and Seed the Database:
 
     $ rake db:migrate
     $ rake db:seed
+
+Run locally:
+
+    $ shotgun
+
+Access from browser:
+
+    Copy the 'listening on' IP address to browser and hit enter
+    CTRL+C to stop shotgun
 
 ## Usage
 
