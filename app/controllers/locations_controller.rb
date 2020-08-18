@@ -15,6 +15,7 @@ class LocationsController < ApplicationController
         if @location.save
             redirect "/locations/#{@location.id}"
         else
+            flash[:errors] = "Location update failure: #{@location.errors.full_messages.to_sentence}."
             redirect "/locations/failure"
         end
     end
@@ -37,10 +38,10 @@ class LocationsController < ApplicationController
 
     patch '/locations/:id' do 
         @location = Location.find(params[:id])
-        if !params["location"]["station"].empty? && !params["location"]["building"].empty?
-            @location.update(params["location"])
+        if @location.update(params["location"])
             redirect "/locations/#{@location.id}"
         else
+            flash[:errors] = "Location update failure: #{@location.errors.full_messages.to_sentence}."
             redirect "/locations/#{@location.id}"
         end
     end

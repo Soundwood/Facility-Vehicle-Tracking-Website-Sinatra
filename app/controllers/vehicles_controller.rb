@@ -6,6 +6,8 @@ class VehiclesController < ApplicationController
         erb :'/vehicles/index'
     end
     get '/vehicles/new' do
+        @vehicle = Vehicle.new()
+        @locations = Location.all 
         redirect_if_logged_out
         erb :'/vehicles/new'
     end
@@ -17,7 +19,8 @@ class VehiclesController < ApplicationController
         if @vehicle.save
             redirect "/vehicles/#{@vehicle.id}"
         else
-            redirect "/vehicles/failure"
+            flash[:errors] = "Vehicle creation failure: #{@vehicle.errors.full_messages.to_sentence}."
+            redirect "/vehicles/new"
         end
     end
     
@@ -38,10 +41,10 @@ class VehiclesController < ApplicationController
     end
     patch '/vehicles/:id' do 
         @vehicle = Vehicle.find(params[:id])
-        if !params["vehicle"]["vin"].empty? && !params["vehicle"]["model"].empty? && !params["vehicle"]["sub_model"].empty?
-            @vehicle.update(params["vehicle"])
+        if @vehicle.update(params["vehicle"])
             redirect "/vehicles/#{@vehicle.id}"
         else
+            flash[:errors] = "Vehicle update failure: #{@vehicle.errors.full_messages.to_sentence}."
             redirect "/vehicles/#{@vehicle.id}"
         end
     end
