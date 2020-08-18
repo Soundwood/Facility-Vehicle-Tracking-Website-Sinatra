@@ -4,6 +4,7 @@ class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   set :session_secret, "purplepandageneral"
   set :views, Proc.new { File.join(root, "../views/") }
+  set :show_exceptions, false
   
   configure do
     set :views, "app/views"
@@ -18,6 +19,10 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     erb :welcome
+  end
+
+  error do
+    erb :oops
   end
 
   helpers do
