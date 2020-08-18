@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     end
     get '/user/account' do
         redirect_if_logged_out
-        @user = User.find_by(session[:user_id])
+        @user = User.find_by(:id => session[:user_id])
         @vehicles = Vehicle.all
         @locations = Location.all
         erb :'/user/account'
