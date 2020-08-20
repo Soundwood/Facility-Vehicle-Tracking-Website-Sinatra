@@ -12,6 +12,7 @@ class UsersController < ApplicationController
             if user.save
                 redirect "/user/login"
             else
+                flash[:errors] = "User creation error: #{user.errors.full_messages.to_sentence}."
                 redirect "/user/failure"
             end
         end

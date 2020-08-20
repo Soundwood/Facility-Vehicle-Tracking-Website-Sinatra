@@ -27,6 +27,7 @@ class VehiclesController < ApplicationController
     get '/vehicles/:id/edit' do
         redirect_if_logged_out
         @vehicle = Vehicle.find(params[:id])
+        @locations = Location.all
         redirect_if_unauth_user(@vehicle.user_id)
         erb :'/vehicles/edit'
     end

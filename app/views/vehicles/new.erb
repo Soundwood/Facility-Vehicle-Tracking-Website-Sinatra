@@ -7,6 +7,10 @@
     <label>Vehicle Sub-Model:</label>
     <input type="text" name="vehicle[sub_model]" value="<%= @vehicle.sub_model %>"><br>
     <label>Vehicle Location:</label>
-    <input type="text" name="vehicle[location_id]"><br>  
+    <select name="vehicle[location_id]" id=""vehicle[location_id]">
+      <% @locations.each do |location| %>
+        <option value="<%= location.id %>"><%= location.id %> <%= location.building %> <%= location.station %></option>
+      <% end %>
+    </select><br>  
     <input type="submit" value="Create New Vehicle">
 </form>

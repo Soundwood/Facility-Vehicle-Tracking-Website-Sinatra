@@ -7,7 +7,13 @@
     <label>Edit the Vehicle's Model:</label>
     <input type="text" name="vehicle[model]" value="<%= @vehicle.model %>"><br>
     <label>Edit the Vehicle's Sub-Model:</label>
-    <input type="text" name="vehicle[sub_model]" value="<%= @vehicle.sub_model %>">
+    <input type="text" name="vehicle[sub_model]" value="<%= @vehicle.sub_model %>"><br>
+    <label>Vehicle Location:</label>
+    <select name="vehicle[location_id]" id=""vehicle[location_id]">
+      <% @locations.each do |location| %>
+        <option value="<%= location.id %>"><%= location.id %> <%= location.building %> <%= location.station %></option>
+      <% end %>
+    </select>
     <br>
     <h4>Vehicle Total Duration at Facility: <%= @vehicle.total_duration %></h4>
     <h4>Vehicle Arrival at Facility: <%= @vehicle.arrival_time %></h4>
